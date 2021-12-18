@@ -1,0 +1,5 @@
+.exchange-img {
+    position: relative;
+    top: calc(50% - 7.5px);
+    left: calc(50% - 7.5px);
+}
