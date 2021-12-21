@@ -3,9 +3,10 @@ import './App.css';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import SearchAppBar from '../app-bar/app-bar';
 import Dictionary from '../dictionary/dictionary';
+import { Grid } from '@mui/material';
 function App() {
   return (
-    <div>
+    <Grid>
       <SearchAppBar ></SearchAppBar>
       <BrowserRouter>
         <Switch>
@@ -17,7 +18,7 @@ function App() {
           <Redirect from="/" to={`/dictionary`} />
         </Switch>
       </BrowserRouter>
-    </div>
+    </Grid>
   );
 }
 
