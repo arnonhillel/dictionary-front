@@ -1,6 +1,6 @@
 .exchange-img {
     position: relative;
-    top: calc(50% - 7.5px);
+    top: calc(50% - 15px);
     left: calc(50% - 7.5px);
     cursor: pointer;
 }

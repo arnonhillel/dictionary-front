@@ -3,7 +3,7 @@ import axios from 'axios';
 import { TranslateModel } from '../models/translate.model';
 
 
-const baseUrl = 'http://localhost:5000'
+const baseUrl = process.env.REACT_APP_DICTIONARY_ENDPOINT || 'http://localhost:5000'
 
 export const getWord = async (wordRequest: TranslateModel): Promise<any[]> => {
 
@@ -20,7 +20,7 @@ export const getWord = async (wordRequest: TranslateModel): Promise<any[]> => {
 
 export const createWord = async (body: any): Promise<any> => {
     const [error, response] = await to(
-        axios.post<Error, { data: any[] }>(`http://localhost:5000/words`, body)
+        axios.post<Error, { data: any[] }>(`${baseUrl}/words`, body)
     );
 
     if (error) {

@@ -56,60 +56,62 @@ export default function Translator() {
         </Grid>) : null
 
     const selectItem = (value, name, label) =>
-    (<FormControl style={{ width: '100%' }}>
-        <InputLabel id={name}>{label}</InputLabel>
-        <Select
-            value={value}
-            label={name} defaultValue={value}
-            name={name}
-            onChange={handleChange}>
-            <MenuItem value='he'>hebrew</MenuItem>
-            <MenuItem value='en'>english</MenuItem>
-        </Select>
-    </FormControl>
+    (<Grid item xs={12} sm={8} md={4}>
+
+        <FormControl style={{ width: '100%', minWidth: '100px' }}>
+            <InputLabel id={name}>{label}</InputLabel>
+            <Select
+                value={value}
+                label={name} defaultValue={value}
+                name={name}
+                onChange={handleChange}>
+                <MenuItem value='he'>hebrew</MenuItem>
+                <MenuItem value='en'>english</MenuItem>
+            </Select>
+        </FormControl>
+    </Grid>
     )
 
 
     return (
         <>
-            <Grid container spacing={2} style={{ padding: '35px', width: '100%' }}>
-                <Grid item xs={4} md={4} sm={4}></Grid>
-                <Grid item xs={4} md={4} sm={4} container
+            <Grid container spacing={2} style={{
+                padding: '35px', width: '100%', display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}>
+                <Grid item xs={12} sm={8} md={4}></Grid>
+                <Grid item xs={12} sm={8} md={4} container
                     justifyContent="center"
                     alignItems="center">
                     <TextField style={{ width: '100%' }}
                         id="filled-search"
-                        label="Search field"
+                        label="Enter text"
                         type="search"
                         name="word"
                         variant="filled" onChange={handleChange} />
                 </Grid>
-                <Grid item xs={4} md={4} sm={4} >
+                <Grid item xs={12} sm={8} md={4} >
                     <Button variant="contained" style={{ height: '100%' }}
                         onClick={searchWord}>Translate</Button>
                 </Grid>
-                <Grid item xs={4} md={4} sm={4}></Grid>
-                <Grid item xs={4} md={4} sm={4}
+                <Grid item xs={12} sm={8} md={4}
                     justifyContent="center"
                     alignItems="center">
                     <Grid container>
-                        <Grid item xs={5} md={5} sm={5}>
-                            {selectItem(source, 'source', 'from')}
-                        </Grid>
-                        <Grid item xs={2} md={2} sm={2} style={{ position: 'relative' }}>
+                        {selectItem(source, 'source', 'from')}
+                        <Grid item xs={12} sm={8} md={4} style={{ position: 'relative' }}>
                             <Grid className='exchange-img'>
                                 <img onClick={replace} src={exchange} alt="" width="15" height="15" />
                             </Grid>
                         </Grid>
-                        <Grid item xs={5} md={5} sm={5}>
-                            {selectItem(target, 'target', 'to')}
-                        </Grid>
+                        {selectItem(target, 'target', 'to')}
                     </Grid>
                 </Grid>
                 <Grid container padding={15}>
-                    <Grid item xs={4} md={4} sm={4}></Grid>
+                    <Grid item xs={12} sm={8} md={4}></Grid>
                     {translationResult}
-                    <Grid item xs={4} md={4} sm={4}></Grid>
+                    <Grid item xs={12} sm={8} md={4}></Grid>
                 </Grid>
             </Grid>
         </>
